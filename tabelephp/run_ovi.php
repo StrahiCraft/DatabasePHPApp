@@ -8,6 +8,8 @@ if(!$connection){
     echo "Greska";
 }
 
+$currentTable = "run_ovi";
+
 echo "Uspesno uspostavljena konekcija ka bazi";
 
 if(isset($_GET['delete_id'])){
@@ -28,9 +30,9 @@ if(isset($_GET['delete_id'])){
         CRUD Operacije
     </header>
     <body>
-        <table align = "center">
+        <table align = "center" class = "tabela">
             <tr>
-                <th colspan="5"><a href = "/add_data.php">Dodaj podatak</a></th>
+                <th colspan="5"><a href = "/DatabasePHPApp/add_data.php">Dodaj podatak</a></th>
             </tr>
             <tr>
                 <th>Vreme</th>
@@ -39,7 +41,23 @@ if(isset($_GET['delete_id'])){
                 <th>Platforma</th>
                 <th>id_igrice</th>
                 <th>id_moderatora</th>
+                <th colspan = "2">Operacija</th>
             </tr>
-            
+            <?php
+            $sql_query = "SELECT * FROM run_ovi";
+            $result_set = mysqli_query($connection, $sql_query);
+
+            while($row = mysqli_fetch_row($result_set)){
+                ?>
+                <tr class = "row">
+                    <script type = "text/javascript">
+                        javascript:create_row(<?php echo json_encode($row)?>, <?php echo count($row)?>);
+                    </script>
+                    <td align = "center"><a href = "javascript:edit_id('<?php echo $row[0]; ?>')"><img src = "/DatabasePHPApp/Images/b_edit.png" align = "EDIT"></a></td>
+                    <td align = "center"><a href = "javascript:delete_id('<?php echo $row[0]; ?>')"><img src = "/DatabasePHPApp/Images/b_drop.png" align = "DELETE"></a></td>
+            </tr>
+            <?php
+            }
+            ?>
         </table>
     </body>

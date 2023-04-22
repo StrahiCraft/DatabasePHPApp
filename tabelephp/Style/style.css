@@ -7,3 +7,13 @@ header{
 
     font-size: 2em;
 }
+
+table{
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.tabela{
+    display: flex;
+}
