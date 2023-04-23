@@ -21,11 +21,18 @@
     
     echo "Uspesno uspostavljena konekcija ka bazi";
 
+    
     $columnNames = GetColumnNames($_COOKIE['tableName'], $connection);
     //vraceno kao 2D niz kod kog je 1. dimenzija kolone, a u 2. ^
     //staviti 0 za ime kolone i 1 za tip podataka
+    
+    if(isset($_GET['edit_id'])){
+        $sql_query = "SELECT * FROM ".$_COOKIE['tableName']." WHERE ".$columnNames[0][0]."=".$_GET['edit_id'];
+        $result_set = mysqli_query($connection, $sql_query);
+        $fetched_row = mysqli_fetch_array($result_set);
+    }
 
-    if(isset($_POST['btn-save'])){
+    if(isset($_POST['btn-update'])){
         $columnIndex = 1;
         $columnCount = sizeof($columnNames);
 
@@ -35,26 +42,28 @@
             $columnData[$columnIndex] = $_POST[$columnNames[$columnIndex][0]];
             $columnIndex++;
         }
-        $sql_query = CreateInsertIntoQuery($_COOKIE['tableName'], $columnNames, $columnData, $columnCount);
-        //$sql_query = "INSERT INTO run_ovi(vreme, kategorija, datum, platforma, id_igrice, id_moderatora) VALUES('01:37:35', 'any percent', '2022-11-22', 'N64', '1', '1')";
+        $sql_query = CreateUpdateQuery($_COOKIE['tableName'], $columnNames, $columnData, $columnCount);
+        echo $sql_query;
         if(mysqli_query($connection, $sql_query)){
             ?>
             <script type = "text/javascript">
-                //javascript:try_to_insert_into(true);
-                alert('Podatak je sacuvan ');
-                window.location.href = 'tabelephp/run_ovi.php';
+                javascript:try_to_update(true);
             </script>
             <?php
         }
         else{
             ?>
             <script type = "text/javascript">
-                //javascript:try_to_insert_into(false);
-                alert('Greska! Podatak nije dodat! ');
+                javascript:try_to_update(false);
             </script>
             <?php
         }
     }
+
+    if(isset($_POST['btn-cancel'])){
+        header("Location: tabelephp/".$_COOKIE['tableName'].".php");
+    }
+
     ?>
     <header>
         CRUD Operacije
@@ -70,7 +79,7 @@
                     ?>
                     <tr>
                         <td>
-                            <input type = "text" name = "<?php echo $columnNames[$columnIndex][0]?>" placeholder= "<?php echo $columnNames[$columnIndex][0]?>" /*required*/>
+                            <input type = "text" name = "<?php echo $columnNames[$columnIndex][0]?>" placeholder= "<?php echo $columnNames[$columnIndex][0]?>" value= "<?php echo $fetched_row[$columnIndex]?>" required>
                         </td>
                     </tr>
                     <?php
@@ -79,7 +88,8 @@
                 ?>
                 <tr>
                     <td>
-                        <button type = "submit" name = "btn-save"><strong>Sacuvaj</strong></button>
+                        <button type = "submit" name = "btn-update">PROMENI</button>
+                        <button type="submit" name = "btn-cancel">Odustani</button>
                     </td>
                 </tr>
             </table>

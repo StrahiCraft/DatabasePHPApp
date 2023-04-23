@@ -36,21 +36,17 @@
             $columnIndex++;
         }
         $sql_query = CreateInsertIntoQuery($_COOKIE['tableName'], $columnNames, $columnData, $columnCount);
-        //$sql_query = "INSERT INTO run_ovi(vreme, kategorija, datum, platforma, id_igrice, id_moderatora) VALUES('01:37:35', 'any percent', '2022-11-22', 'N64', '1', '1')";
         if(mysqli_query($connection, $sql_query)){
             ?>
             <script type = "text/javascript">
-                //javascript:try_to_insert_into(true);
-                alert('Podatak je sacuvan ');
-                window.location.href = 'tabelephp/run_ovi.php';
+                javascript:try_to_insert_into(true);
             </script>
             <?php
         }
         else{
             ?>
             <script type = "text/javascript">
-                //javascript:try_to_insert_into(false);
-                alert('Greska! Podatak nije dodat! ');
+                javascript:try_to_insert_into(false);
             </script>
             <?php
         }
@@ -70,7 +66,7 @@
                     ?>
                     <tr>
                         <td>
-                            <input type = "text" name = "<?php echo $columnNames[$columnIndex][0]?>" placeholder= "<?php echo $columnNames[$columnIndex][0]?>" /*required*/>
+                            <input type = "text" name = "<?php echo $columnNames[$columnIndex][0]?>" placeholder= "<?php echo $columnNames[$columnIndex][0]?>" required>
                         </td>
                     </tr>
                     <?php
@@ -79,7 +75,7 @@
                 ?>
                 <tr>
                     <td>
-                        <button type = "submit" name = "btn-save"><strong>Sacuvaj</strong></button>
+                        <button type = "submit" name = "btn-save">Sacuvaj</button>
                     </td>
                 </tr>
             </table>

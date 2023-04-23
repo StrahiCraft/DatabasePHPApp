@@ -26,4 +26,15 @@ function CreateInsertIntoQuery($tableName, $columnNames, $columnData, $columnCou
     $sql_query .= $columnData[$columnCount - 1].")";
     return $sql_query;
 }
+
+function CreateUpdateQuery($tableName, $columnNames, $columnData, $columnCount){
+    $sql_query = "UPDATE ".$tableName." SET ";
+    $columIndex = 1;
+    while($columIndex < $columnCount - 1){
+        $sql_query .= $columnNames[$columIndex][0]."='".$columnData[$columIndex]."', ";
+        $columIndex++;
+    }
+    $sql_query .= $columnNames[$columnCount - 1][0]."='".$columnData[$columnCount - 1]."' WHERE ".$columnNames[0][0]."=".$_GET['edit_id'];
+    return $sql_query;
+}
 ?>

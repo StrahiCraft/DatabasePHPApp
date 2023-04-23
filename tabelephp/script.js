@@ -3,7 +3,7 @@ let tableName = "index";
 
 function edit_id(id){
     if(confirm('Sigurni ste da zelite promenu podataka?')){
-        window.location.href = 'edit_data.php?edit_id=' + id;
+        window.location.href = '\\DatabasePHPApp/' + 'edit_data.php?edit_id=' + id;
     }
 }
 
@@ -44,4 +44,13 @@ function try_to_insert_into(succesful){
         return;
     }
     alert('Greska! Podatak nije dodat!');
+}
+
+function try_to_update(succesful){
+    if(succesful){
+        alert("Podatak je promenjen uspesno!");
+        window.location.href = 'tabelephp/' + tableName + '.php';
+        return;
+    }
+    alert('Greska! Podatak nije promenjen uspesno!');
 }
