@@ -9,9 +9,12 @@ header{
 }
 
 table{
-    align-items: center;
-    text-align: center;
     justify-content: center;
+}
+
+tbody{
+    padding: 2em;
+    background: rgb(169, 221, 255);
 }
 
 .tabela{

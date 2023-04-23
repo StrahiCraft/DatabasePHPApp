@@ -1,15 +1,15 @@
-let tableName = "index";
 
+let tableName = "index";
 
 function edit_id(id){
     if(confirm('Sigurni ste da zelite promenu podataka?')){
-        window.location.href = tableName + 'edit_data.php?edit_id=' + id;
+        window.location.href = 'edit_data.php?edit_id=' + id;
     }
 }
 
 function delete_id(id){
     if(confirm('Sigurni ste da zelite da obrisete podatak?')){
-        window.location.href = tableName + '.php?delete_id' + id;
+        window.location.href = tableName + '.php?delete_id=' + id;
     }
 }
 
@@ -27,10 +27,21 @@ function create_row(row, columnCount){
     }
 }
 
-function set_current_table(newTableName){
-    tableName = newTableName;
+function set_current_table_name(newTableName){
+    localStorage.setItem("tableName", newTableName);
+    get_current_table_name();
 }
 
 function get_current_table_name(){
-    alert(tableName);
+    tableName = localStorage.getItem("tableName");
+    document.cookie = "tableName = " + tableName;
+}
+
+function try_to_insert_into(succesful){
+    if(succesful){
+        alert("Podatak je sacuvan!");
+        window.location.href = 'tabelephp/' + tableName + '.php';
+        return;
+    }
+    alert('Greska! Podatak nije dodat!');
 }

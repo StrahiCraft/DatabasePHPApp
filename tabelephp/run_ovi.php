@@ -13,7 +13,7 @@ $currentTable = "run_ovi";
 echo "Uspesno uspostavljena konekcija ka bazi";
 
 if(isset($_GET['delete_id'])){
-    $sql_query = "DELETE FROM run_ovi WHERE id_runa =".$_GET['delete_id'];
+    $sql_query = "DELETE FROM ".$currentTable." WHERE id_runa =".$_GET['delete_id'];
     mysqli_query($connection, $sql_query);
     header("Location: $_SERVER[PHP_SELF]");
 }
@@ -30,6 +30,9 @@ if(isset($_GET['delete_id'])){
         CRUD Operacije
     </header>
     <body>
+        <script type="text/javascript">
+            javascript:set_current_table_name("run_ovi");
+        </script>
         <table align = "center" class = "tabela">
             <tr>
                 <th colspan="5"><a href = "/DatabasePHPApp/add_data.php">Dodaj podatak</a></th>
