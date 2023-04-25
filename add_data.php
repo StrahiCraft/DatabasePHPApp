@@ -7,6 +7,7 @@
     </head>
     <script type = "text/javascript">
         javascript:get_current_table_name();
+        javascript:check_cookie("<?php echo $_COOKIE['tableName']?>");
     </script>
     <?php
     include_once dirname(__FILE__).'\dbconfig.php';
@@ -66,7 +67,7 @@
                     ?>
                     <tr>
                         <td>
-                            <input type = "text" name = "<?php echo $columnNames[$columnIndex][0]?>" placeholder= "<?php echo $columnNames[$columnIndex][0]?>" required>
+                            <input type = "text" name = "<?php echo $columnNames[$columnIndex][0]?>" placeholder= "<?php echo $columnNames[$columnIndex][0]?>" required*/>
                         </td>
                     </tr>
                     <?php

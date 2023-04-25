@@ -7,6 +7,7 @@
     </head>
     <script type = "text/javascript">
         javascript:get_current_table_name();
+        javascript:check_cookie("<?php echo $_COOKIE['tableName']?>");
     </script>
     <?php
     include_once dirname(__FILE__).'\dbconfig.php';
@@ -21,7 +22,6 @@
     
     echo "Uspesno uspostavljena konekcija ka bazi";
 
-    
     $columnNames = GetColumnNames($_COOKIE['tableName'], $connection);
     //vraceno kao 2D niz kod kog je 1. dimenzija kolone, a u 2. ^
     //staviti 0 za ime kolone i 1 za tip podataka
@@ -63,7 +63,6 @@
     if(isset($_POST['btn-cancel'])){
         header("Location: tabelephp/".$_COOKIE['tableName'].".php");
     }
-
     ?>
     <header>
         CRUD Operacije

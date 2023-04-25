@@ -22,19 +22,20 @@ function create_row(row, columnCount){
         const rowIndex = document.getElementsByClassName("row").length - 1
 
         const element = document.getElementsByClassName("row")[rowIndex];
-        element.classList.add('gg');
+        element.classList.add('gg'); // ovo mozda treba da se skloni
         element.appendChild(cellData);
     }
 }
 
 function set_current_table_name(newTableName){
+    tableName = newTableName;
     localStorage.setItem("tableName", newTableName);
     get_current_table_name();
 }
 
 function get_current_table_name(){
     tableName = localStorage.getItem("tableName");
-    document.cookie = "tableName = " + tableName;
+    document.cookie = "tableName=" + tableName;
 }
 
 function try_to_insert_into(succesful){
@@ -53,4 +54,11 @@ function try_to_update(succesful){
         return;
     }
     alert('Greska! Podatak nije promenjen uspesno!');
+}
+
+function check_cookie(cookie){
+    let documentCookie = document.cookie.split('=')[1];
+    if(cookie != documentCookie){
+        location.reload();
+    }
 }

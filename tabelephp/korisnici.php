@@ -8,12 +8,12 @@ if(!$connection){
     echo "Greska";
 }
 
-$currentTable = "run_ovi";
+$currentTable = "korisnici";
 
 echo "Uspesno uspostavljena konekcija ka bazi";
 
 if(isset($_GET['delete_id'])){
-    $sql_query = "DELETE FROM ".$currentTable." WHERE id_runa =".$_GET['delete_id'];
+    $sql_query = "DELETE FROM ".$currentTable." WHERE id_korisnika =".$_GET['delete_id'];
     mysqli_query($connection, $sql_query);
     header("Location: $_SERVER[PHP_SELF]");
 }
@@ -25,9 +25,6 @@ if(isset($_GET['delete_id'])){
         <link rel = "stylesheet" href = "Style/style.css">
         <script src = "script.js"></script>
     </head>
-    <script type="text/javascript">
-        javascript:set_current_table_name("run_ovi");
-    </script>
     <header>
         CRUD Operacije
     </header>
@@ -55,21 +52,24 @@ if(isset($_GET['delete_id'])){
         </div>
     </nav>
     <body>
+        <script type="text/javascript">
+            javascript:set_current_table_name("korisnici");
+        </script>
         <table align = "center" class = "tabela">
             <tr>
                 <th colspan="5"><a href = "/DatabasePHPApp/add_data.php">Dodaj podatak</a></th>
             </tr>
             <tr>
-                <th>Vreme</th>
-                <th>Kategorija</th>
-                <th>Datum</th>
-                <th>Platforma</th>
-                <th>id_igrice</th>
-                <th>id_moderatora</th>
+                <th>Korisnicko ime</th>
+                <th>Lozinka</th>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Email adresa</th>
+                <th>id_socijalnih_medija</th>
                 <th colspan = "2">Operacija</th>
             </tr>
             <?php
-            $sql_query = "SELECT * FROM run_ovi";
+            $sql_query = "SELECT * FROM korisnici";
             $result_set = mysqli_query($connection, $sql_query);
 
             while($row = mysqli_fetch_row($result_set)){
