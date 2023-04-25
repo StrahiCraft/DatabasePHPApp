@@ -1,7 +1,7 @@
 <?php
 include_once dirname(__FILE__, 2).'\dbconfig.php';
 
-$connection = mysqli_connect("$host", "$username", "$password", "baza");
+$connection = mysqli_connect("$host", "$username", "$password", "$database");
 
 if(!$connection){
     mysqli_close($connection);
@@ -26,7 +26,7 @@ if(isset($_GET['delete_id'])){
         <script src = "script.js"></script>
     </head>
     <script type="text/javascript">
-        javascript:set_current_table_name("run_ovi");
+        javascript:set_current_table_name("<?php echo $currentTable?>");
     </script>
     <header>
         CRUD Operacije
@@ -64,12 +64,12 @@ if(isset($_GET['delete_id'])){
                 <th>Kategorija</th>
                 <th>Datum</th>
                 <th>Platforma</th>
-                <th>id_igrice</th>
-                <th>id_moderatora</th>
+                <th>ID igrice</th>
+                <th>ID moderatora</th>
                 <th colspan = "2">Operacija</th>
             </tr>
             <?php
-            $sql_query = "SELECT * FROM run_ovi";
+            $sql_query = "SELECT * FROM ".$currentTable;
             $result_set = mysqli_query($connection, $sql_query);
 
             while($row = mysqli_fetch_row($result_set)){

@@ -1,8 +1,6 @@
 <?php
 $username = "root";
 $host = "localhost:3306";
-$database = "domaci";
+$database = "baza";
 $password = "";
-
-$currentTable = "index";
 ?>

@@ -1,7 +1,7 @@
 <?php
 include_once dirname(__FILE__, 2).'\dbconfig.php';
 
-$connection = mysqli_connect("$host", "$username", "$password", "baza");
+$connection = mysqli_connect("$host", "$username", "$password", "$database");
 
 if(!$connection){
     mysqli_close($connection);
@@ -25,6 +25,9 @@ if(isset($_GET['delete_id'])){
         <link rel = "stylesheet" href = "Style/style.css">
         <script src = "script.js"></script>
     </head>
+    <script type="text/javascript">
+        javascript:set_current_table_name("<?php echo $currentTable?>");
+    </script>
     <header>
         CRUD Operacije
     </header>
@@ -52,9 +55,6 @@ if(isset($_GET['delete_id'])){
         </div>
     </nav>
     <body>
-        <script type="text/javascript">
-            javascript:set_current_table_name("igrice");
-        </script>
         <table align = "center" class = "tabela">
             <tr>
                 <th colspan="5"><a href = "/DatabasePHPApp/add_data.php">Dodaj podatak</a></th>
@@ -65,7 +65,7 @@ if(isset($_GET['delete_id'])){
                 <th colspan = "2">Operacija</th>
             </tr>
             <?php
-            $sql_query = "SELECT * FROM igrice";
+            $sql_query = "SELECT * FROM ".$currentTable;
             $result_set = mysqli_query($connection, $sql_query);
 
             while($row = mysqli_fetch_row($result_set)){
