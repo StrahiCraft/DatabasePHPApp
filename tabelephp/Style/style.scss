@@ -1,0 +1,77 @@
+$background-color: #2E3440;
+$brighter-background-color: #3B4252;
+$accent-color: #fb9237;
+$darker-accent-color: #865020;
+$white: #ffffff;
+
+body{
+    background-color: $background-color;
+}
+
+header{
+    background-color: $brighter-background-color;
+    color: $accent-color;
+    font-size: 3em;
+    text-align: center;
+    padding: 1em 0em 1em 0em;
+    margin: 1.5% 15% 0em 15%;
+    border-radius: 0% 130px;
+    border-bottom: solid .5em;
+}
+
+.tabela{
+    background-color: $brighter-background-color;
+    border-radius: 60px;
+    border-bottom: solid .5em $accent-color;
+    padding: 3%;
+    table{
+        border-collapse: collapse;
+        width: 100%;
+        .add-data{
+            font-size: 2em;
+            color: $accent-color;
+            text-decoration: underline;
+        }
+        .row-header{
+            color: $white;
+            font-size: 1.5em;
+            font-weight: 500;
+            border-bottom: solid .2em $accent-color;
+        }
+        .row{
+            color: $white;
+        }
+        td{
+            
+            border: .2em solid $accent-color;
+            text-align: center;
+        }
+    }
+}
+
+.navigation{
+    background-color: $brighter-background-color;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: .5%;
+    margin: .5%;
+    .link{
+        border: solid $accent-color;
+        border-radius: 25px 0%;
+        padding: .5em;
+        margin: .1em;
+        background-color: $darker-accent-color;
+        a{
+            color: $white;
+            text-decoration: none;
+        }
+    }
+}
+
+#current-table{
+    background-color: $white;
+    a{
+        color: $darker-accent-color;
+    }
+}

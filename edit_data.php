@@ -4,10 +4,11 @@
         <title>CRUD Operacije</title>
         <link rel = "stylesheet" href = "tabelephp/Style/style.css">
         <script src = "tabelephp/script.js"></script>
+        <meta name="viewport" content="width=device-width">
     </head>
     <script type = "text/javascript">
         javascript:get_current_table_name();
-        javascript:check_cookie("<?php echo $_COOKIE['tableName']?>");
+        javascript:check_cookie("<?php echo $_COOKIE["tableName"]?>");
     </script>
     <?php
     include_once dirname(__FILE__).'\dbconfig.php';
@@ -78,7 +79,7 @@
                     ?>
                     <tr>
                         <td>
-                            <input type = "text" name = "<?php echo $columnNames[$columnIndex][0]?>" placeholder= "<?php echo $columnNames[$columnIndex][0]?>" value= "<?php echo $fetched_row[$columnIndex]?>" required>
+                            <input type = "text" name = "<?php echo $columnNames[$columnIndex][0]?>" placeholder= "<?php echo $columnNames[$columnIndex][0]?>" value= "<?php echo $fetched_row[$columnIndex]?>">
                         </td>
                     </tr>
                     <?php

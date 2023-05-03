@@ -37,4 +37,13 @@ function CreateUpdateQuery($tableName, $columnNames, $columnData, $columnCount){
     $sql_query .= $columnNames[$columnCount - 1][0]."='".$columnData[$columnCount - 1]."' WHERE ".$columnNames[0][0]."=".$_GET['edit_id'];
     return $sql_query;
 }
+
+function EchoConnectionStatus(bool $connectionStatus){
+    if($connectionStatus){
+        echo '<p class = "connectionStatus">'."Uspesno uspostavljena konekcija ka bazi";
+        return;
+    }
+    echo '<p class = "connectionStatus">'."GRESKA! Nije uspostavljena konekcija ka bazi.";
+}
+
 ?>

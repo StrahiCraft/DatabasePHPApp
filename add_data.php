@@ -1,13 +1,15 @@
 
+<!DOCTYPE html>
 <html>
     <head>
         <title>CRUD Operacije</title>
         <link rel = "stylesheet" href = "tabelephp/Style/style.css">
         <script src = "tabelephp/script.js"></script>
+        <meta name= "viewport" content="width=device-width">
     </head>
     <script type = "text/javascript">
         javascript:get_current_table_name();
-        javascript:check_cookie("<?php echo $_COOKIE['tableName']?>");
+        javascript:check_cookie("<?php echo $_COOKIE["tableName"]?>");
     </script>
     <?php
     include_once dirname(__FILE__).'\dbconfig.php';

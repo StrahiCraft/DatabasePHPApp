@@ -1,22 +1,70 @@
-header{
-    color: rgb(255, 255, 255);
-    background-color: rgb(58, 109, 143);
-
-    text-align: center;
-    padding: 1em;
-
-    font-size: 2em;
+body {
+  background-color: #2E3440;
 }
 
-table{
-    justify-content: center;
+header {
+  background-color: #3B4252;
+  color: #fb9237;
+  font-size: 3em;
+  text-align: center;
+  padding: 1em 0em 1em 0em;
+  margin: 1.5% 15% 0em 15%;
+  border-radius: 0% 130px;
+  border-bottom: solid 0.5em;
 }
 
-tbody{
-    padding: 2em;
-    background: rgb(169, 221, 255);
+.tabela {
+  background-color: #3B4252;
+  border-radius: 60px;
+  border-bottom: solid 0.5em #fb9237;
+  padding: 3%;
+}
+.tabela table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.tabela table .add-data {
+  font-size: 2em;
+  color: #fb9237;
+  text-decoration: underline;
+}
+.tabela table .row-header {
+  color: #ffffff;
+  font-size: 1.5em;
+  font-weight: 500;
+  border-bottom: solid 0.2em #fb9237;
+}
+.tabela table .row {
+  color: #ffffff;
+}
+.tabela table td {
+  border: 0.2em solid #fb9237;
+  text-align: center;
 }
 
-.tabela{
-    display: flex;
+.navigation {
+  background-color: #3B4252;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0.5%;
+  margin: 0.5%;
 }
+.navigation .link {
+  border: solid #fb9237;
+  border-radius: 25px 0%;
+  padding: 0.5em;
+  margin: 0.1em;
+  background-color: #865020;
+}
+.navigation .link a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+#current-table {
+  background-color: #ffffff;
+}
+#current-table a {
+  color: #865020;
+}/*# sourceMappingURL=style.css.map */
