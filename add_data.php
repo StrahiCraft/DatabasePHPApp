@@ -58,9 +58,11 @@
     <header>
         CRUD Operacije
     </header>
-    <div class = "link">
-        <a href = "http://localhost/DatabasePHPApp/index.html">HOME</a>
-    </div>
+    <nav class= "navigation">
+        <div class = "link">
+            <a href = "http://localhost/DatabasePHPApp/index.html">HOME</a>
+        </div>
+    </nav>
     <body>
         <form method = "post">
             <table align = "center">

@@ -62,6 +62,12 @@ header {
   color: #ffffff;
   text-decoration: none;
 }
+.navigation .link:hover {
+  background-color: #ffffff;
+}
+.navigation .link:hover a {
+  color: #865020;
+}
 
 #current-table {
   background-color: #ffffff;

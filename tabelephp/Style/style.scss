@@ -67,6 +67,12 @@ header{
             text-decoration: none;
         }
     }
+    .link:hover{
+        background-color: $white;
+        a{
+            color: $darker-accent-color;
+        }
+    }
 }
 
 #current-table{
