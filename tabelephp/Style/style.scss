@@ -99,3 +99,27 @@ header{
         color: $darker-accent-color;
     }
 }
+
+.inputi{
+    background-color: $brighter-background-color;
+    border-radius: 60px;
+    border-bottom: solid .5em $accent-color;
+    padding: 3%;
+    table{
+        text-align: center;
+        width: 100%;
+        .input-field{
+            input{
+                text-align: center;
+                width: 90%;
+                background-color: $background-color;
+                color:$accent-color;
+            }
+        }
+        button{
+                width: 45%;
+                background-color: $background-color;
+                color:$accent-color;
+        }
+    }
+}

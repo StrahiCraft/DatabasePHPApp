@@ -61,27 +61,29 @@
     </nav>
     <body>
         <form method = "post">
-            <table align = "center">
-                <?php
-                $columnIndex = 1;
-                $columnCount = sizeof($columnNames);
-                while($columnIndex < $columnCount){
-                    
+            <div class = "inputi">
+                <table align = "center">
+                    <?php
+                    $columnIndex = 1;
+                    $columnCount = sizeof($columnNames);
+                    while($columnIndex < $columnCount){
+                        
+                        ?>
+                        <tr>
+                            <td class = "input-field">
+                                <input type = "text" name = "<?php echo $columnNames[$columnIndex][0]?>" placeholder= "<?php echo $columnNames[$columnIndex][0]?>" required*/>
+                            </td>
+                        </tr>
+                        <?php
+                        $columnIndex++;
+                    }
                     ?>
                     <tr>
                         <td>
-                            <input type = "text" name = "<?php echo $columnNames[$columnIndex][0]?>" placeholder= "<?php echo $columnNames[$columnIndex][0]?>" required*/>
+                            <button type = "submit" name = "btn-save">Sacuvaj</button>
                         </td>
                     </tr>
-                    <?php
-                    $columnIndex++;
-                }
-                ?>
-                <tr>
-                    <td>
-                        <button type = "submit" name = "btn-save">Sacuvaj</button>
-                    </td>
-                </tr>
-            </table>
+                </table>
+            </div>
         </form>
     </body>

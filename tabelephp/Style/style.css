@@ -98,4 +98,26 @@ header {
   animation-name: select-table-text;
   animation-duration: 0s;
   color: #865020;
+}
+
+.inputi {
+  background-color: #3B4252;
+  border-radius: 60px;
+  border-bottom: solid 0.5em #fb9237;
+  padding: 3%;
+}
+.inputi table {
+  text-align: center;
+  width: 100%;
+}
+.inputi table .input-field input {
+  text-align: center;
+  width: 90%;
+  background-color: #2E3440;
+  color: #fb9237;
+}
+.inputi table button {
+  width: 45%;
+  background-color: #2E3440;
+  color: #fb9237;
 }/*# sourceMappingURL=style.css.map */

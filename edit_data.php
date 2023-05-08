@@ -6,16 +6,6 @@
         <script src = "tabelephp/script.js"></script>
         <meta name="viewport" content="width=device-width">
     </head>
-
-    <header>
-        CRUD Operacije
-    </header>
-    <nav class= "navigation">
-        <div class = "link">
-            <a href = "http://localhost/DatabasePHPApp/index.html">HOME</a>
-        </div>
-    </nav>
-    <body>
     <?php
     include_once dirname(__FILE__).'\dbconfig.php';
     include_once dirname(__FILE__).'\phpfunctions.php';
@@ -71,29 +61,41 @@
         header("Location: tabelephp/".$_GET['tableName'].".php");
     }
     ?>
+    <header>
+        CRUD Operacije
+    </header>
+    <nav class= "navigation">
+        <div class = "link">
+            <a href = "http://localhost/DatabasePHPApp/index.html">HOME</a>
+        </div>
+    </nav>
+    <body>
+
         <form method = "post">
-            <table align = "center">
-                <?php
-                $columnIndex = 1;
-                $columnCount = sizeof($columnNames);
-                while($columnIndex < $columnCount){
-                    
+            <div class = "inputi">
+                <table align = "center">
+                    <?php
+                    $columnIndex = 1;
+                    $columnCount = sizeof($columnNames);
+                    while($columnIndex < $columnCount){
+                        
+                        ?>
+                        <tr>
+                            <td class = "input-field">
+                                <input type = "text" name = "<?php echo $columnNames[$columnIndex][0]?>" placeholder= "<?php echo $columnNames[$columnIndex][0]?>" value= "<?php echo $fetched_row[$columnIndex]?>">
+                            </td>
+                        </tr>
+                        <?php
+                        $columnIndex++;
+                    }
                     ?>
                     <tr>
                         <td>
-                            <input type = "text" name = "<?php echo $columnNames[$columnIndex][0]?>" placeholder= "<?php echo $columnNames[$columnIndex][0]?>" value= "<?php echo $fetched_row[$columnIndex]?>">
+                            <button type = "submit" name = "btn-update">PROMENI</button>
+                            <button type="submit" name = "btn-cancel">Odustani</button>
                         </td>
                     </tr>
-                    <?php
-                    $columnIndex++;
-                }
-                ?>
-                <tr>
-                    <td>
-                        <button type = "submit" name = "btn-update">PROMENI</button>
-                        <button type="submit" name = "btn-cancel">Odustani</button>
-                    </td>
-                </tr>
-            </table>
+                </table>
+            </div>
         </form>
     </body>
