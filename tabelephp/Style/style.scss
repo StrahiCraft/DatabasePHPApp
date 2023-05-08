@@ -6,6 +6,7 @@ $white: #ffffff;
 
 body{
     background-color: $background-color;
+    text-align: center;
 }
 
 header{
@@ -42,7 +43,6 @@ header{
             color: $white;
         }
         td{
-            
             border: .2em solid $accent-color;
             text-align: center;
         }

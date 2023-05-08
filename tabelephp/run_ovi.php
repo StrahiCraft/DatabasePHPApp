@@ -33,6 +33,9 @@ if(isset($_GET['delete_id'])){
     </header>
     <nav class= "navigation">
         <div class = "link">
+            <a href = "http://localhost/DatabasePHPApp/index.html">HOME</a>
+        </div>
+        <div class = "link">
             <a href = "http://localhost/DatabasePHPApp/tabelephp/igrice.php">IGRICE</a>
         </div>
         <div class = "link">
