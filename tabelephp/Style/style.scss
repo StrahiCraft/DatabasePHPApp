@@ -68,16 +68,34 @@ header{
         }
     }
     .link:hover{
+        animation-name: select-table-background;
+        animation-duration: 0.5s;
         background-color: $white;
         a{
+            animation-name: select-table-text;
+            animation-duration: 0.5s;
             color: $darker-accent-color;
         }
     }
 }
 
+@keyframes select-table-background{
+    from {background-color: $darker-accent-color;}
+    to {background-color: $white;}
+}
+
+@keyframes select-table-text{
+    from {color: $white;}
+    to {color: $darker-accent-color;}
+}
+
 #current-table{
+    animation-name: select-table-background;
+    animation-duration: 0s;
     background-color: $white;
     a{
+        animation-name: select-table-text;
+        animation-duration: 0s;
         color: $darker-accent-color;
     }
 }

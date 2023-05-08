@@ -26,9 +26,6 @@ if(isset($_GET['delete_id'])){
         <link rel = "stylesheet" href = "Style/style.css">
         <script src = "script.js"></script>
     </head>
-    <script type="text/javascript">
-        javascript:set_current_table_name("<?php echo $currentTable?>");
-    </script>
     <header>
         CRUD Operacije
     </header>
@@ -62,7 +59,7 @@ if(isset($_GET['delete_id'])){
         <div class = "tabela">
             <table align = "center">
                 <tr>
-                    <th colspan="4"><a href = "/DatabasePHPApp/add_data.php" class = "add-data">Dodaj podatak</a></th>
+                    <th colspan="4"><a href = "javascript:add_data('<?php echo $currentTable; ?>')" class = "add-data">Dodaj podatak</a></th>
                 </tr>
                 <tr class = "row-header">
                     <th>Ime igrice</th>
@@ -79,7 +76,7 @@ if(isset($_GET['delete_id'])){
                         <script type = "text/javascript">
                             javascript:create_row(<?php echo json_encode($row)?>, <?php echo count($row)?>);
                         </script>
-                        <td align = "center"><a href = "javascript:edit_id('<?php echo $row[0]; ?>')"><img src = "/DatabasePHPApp/Images/b_edit.png" align = "EDIT"></a></td>
+                        <td align = "center"><a href = "javascript:edit_id('<?php echo $row[0]; ?>', '<?php echo $currentTable; ?>')"><img src = "/DatabasePHPApp/Images/b_edit.png" align = "EDIT"></a></td>
                         <td align = "center"><a href = "javascript:delete_id('<?php echo $row[0]; ?>')"><img src = "/DatabasePHPApp/Images/b_drop.png" align = "DELETE"></a></td>
                 </tr>
                 <?php
